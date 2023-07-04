@@ -23,6 +23,8 @@ const FilterItems = styled.li<FilterItemProps>`
 	font-weight: ${props=>props.selected  ? '600' : '400'};
 	line-height: 22px;
 	text-transform: uppercase;
+	cursor: pointer;
+
 
 	border-bottom:${props=> props.selected ? '4px solid var(--others-orange)':'none' };
 `
