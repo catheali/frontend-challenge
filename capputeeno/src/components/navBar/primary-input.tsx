@@ -37,7 +37,8 @@ export function PrimaryInputSearchIcon(props: InputProps){
 	return (
 	<div>
 		<InputContainer>
-		 <PrimaryInput onChange={(event: React.ChangeEvent<HTMLInputElement>) => props.handleChange(event.target.value)} {...props}/>{/*destrutura todas as props passadas e envia para o input */}
+		 <PrimaryInput onChange={(event: React.ChangeEvent<HTMLInputElement>) => props.handleChange(event.target.value)}
+		  {...props}/>{/*destrutura todas as props passadas e envia para o input */}
 			<SearchIcon/>
 		</InputContainer>
 	</div>
