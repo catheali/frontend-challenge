@@ -4,9 +4,12 @@
   --logo-color: #5d5d6d;
   --bg-secondary: #F3F5F6;
   --text-dark: #737380;
+  --text-darker: #41414D;
+  --shapes-dark: #09090A;
   --others-red: #DE3838;
-  --text-dark-input: #41414D;
-  --others-orange: #FFA585; 
+  --others-orange: #FFA585;
+  --shapes: #dce2e6;
+  --bg-primary: #f0f0f5;
 }
 
 * {

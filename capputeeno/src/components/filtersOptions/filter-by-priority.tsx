@@ -16,7 +16,7 @@ const FilterContainer = styled.div`
 	button {
 		border: none;
 		font-family: inherit;
-		background: transparent;
+		background: var(--bg-primary);
 		color: var(--text-dark);
 		font-size: 14px;
 		font-weight: 400;
@@ -32,6 +32,7 @@ const FilterContainer = styled.div`
 `
 const PriorityFilter = styled.ul`
 	border-radius: 4px;
+	background: var(--bg-primary);
 	box-shadow: 0px 4px 12px 0px rgba(0, 0, 0, 0.10);
 	padding: 16px 12px;
 	list-style: none;
@@ -39,6 +40,12 @@ const PriorityFilter = styled.ul`
 	width: 180px;
 	position: absolute;
 	top: 100%;
+	z-index: 999;
+
+	li:hover{
+		background: var(--shapes);
+		color: var(--text-darker);
+	}
 
 	li{
 		color: var(--text-dark);
