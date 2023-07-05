@@ -1,17 +1,28 @@
 "use client"
 import { useProducts } from "@/hooks/useProducts"
+import { styled } from "styled-components";
+import { ProductCard } from "./product-card";
 
-interface ProductProps {
 
-}
+const ListContainer = styled.div`
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(256px, auto));
+    grid-gap: 32px;
+    max-width: 100%;
+    margin-top: 32px;
 
-export function Products(props: ProductProps) {
+`
+export function Products() {
 	const {data} = useProducts();
 	return(
-		<>
-		<div>
-			<p></p>
-		</div>
-		</>
+	<ListContainer>{data?.map(prod => 
+	<ProductCard
+		key={prod.id}
+		title={prod.name}
+		price={prod.price_in_cents}
+		image={prod.image_url}
+		/>
+		)}
+	</ListContainer>
 	)
 }
