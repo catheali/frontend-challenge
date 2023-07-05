@@ -1,7 +1,7 @@
 import './globals.css'
 import { Saira } from 'next/font/google' // biblioteca do next das fontes do google
 import { Header } from '@/components/navBar/header'
-import { FilterContextProvider } from '@/contexts/filters/filter-context'
+import DefaultProviders from '@/components/provider/default-providers'
 
 
 const saira = Saira({ 
@@ -21,10 +21,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={saira.className}>
-		<FilterContextProvider>
+		<DefaultProviders>
 			<Header/>
 			{children}
-		</FilterContextProvider>
+		</DefaultProviders>
 	  </body>
     </html>
   )
