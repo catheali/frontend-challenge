@@ -17,17 +17,21 @@ const FilterList = styled.ul`
 const FilterItems = styled.li<FilterItemProps>`
 	color: var(--text-dark-input);
 	text-align: center;
-	font-size: 16px;
+	font-size: 12px;
 	font-family: inherit;
 	font-style: normal;
 	font-weight: ${props=>props.selected  ? '600' : '400'};
-	line-height: 22px;
+	line-height: 18px;
 	text-transform: uppercase;
 	cursor: pointer;
 
-
 	border-bottom:${props=> props.selected ? '4px solid var(--others-orange)':'none' };
-`
+
+	@media(min-width:${props => props.theme.desktopBreakpoint}){
+		font-size: 16px;
+		line-height: 22px;
+	}
+	`
 
 export function FilterByType(){
 	const {type, setType} = useFilter();

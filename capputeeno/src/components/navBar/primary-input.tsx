@@ -3,29 +3,38 @@ import {styled} from "styled-components"
 import { SearchIcon } from "../icons/search-loupe"
 
 export const PrimaryInput = styled.input`
-	width: 352px;
+	width: 100%;
 	padding: 10px 16px;
 	border-radius: 8px;
 	border: none;
 	background-color: var(--bg-secondary);
 	box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 
-	font-size: 14px;
+	font-size: 12px;
 	font-family: inherit;
 	font-weight: 400;
-	line-height: 22px;
+	line-height: 20px;
 	color: var(--text-dark);
+
+	@media(min-width:${props => props.theme.desktopBreakpoint}){
+		font-size: 14px;
+		line-height: 22px;
+	}
 `
 
 const InputContainer = styled.div`
 	position: relative;
-	width: 352px;
+	width: 240px;
 
 	svg{
 		position: absolute;
 		right: 20px;
 		top: 50%;
 		transform: translateY(-50%);
+	}
+
+	@media( min-width:768px){
+		width: 352px;
 	}
 `
 interface InputProps extends InputHTMLAttributes <HTMLInputElement>{

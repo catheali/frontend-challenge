@@ -41,6 +41,7 @@ const PriorityFilter = styled.ul`
 	position: absolute;
 	top: 100%;
 	z-index: 999;
+	right:8px;
 
 	li:hover{
 		background: var(--shapes);
