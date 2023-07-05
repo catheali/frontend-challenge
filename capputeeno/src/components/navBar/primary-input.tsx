@@ -1,4 +1,4 @@
-import { HtmlHTMLAttributes, InputHTMLAttributes } from "react"
+import { InputHTMLAttributes } from "react"
 import {styled} from "styled-components"
 import { SearchIcon } from "./search-loupe"
 
@@ -28,13 +28,16 @@ const InputContainer = styled.div`
 		transform: translateY(-50%);
 	}
 `
-interface InputProps extends InputHTMLAttributes <HTMLInputElement>{} // importando todos os atributos que um input normal recebe usando o generics HTMLInputElement
+interface InputProps extends InputHTMLAttributes <HTMLInputElement>{
+	value: string,
+	handleChange:(value: string) => void
+} // importando todos os atributos que um input normal recebe usando o generics HTMLInputElement
 
 export function PrimaryInputSearchIcon(props: InputProps){
 	return (
 	<div>
 		<InputContainer>
-		 <PrimaryInput {...props}/>{/*destrutura todas as props passadas e envia para o input */}
+		 <PrimaryInput onChange={(event: React.ChangeEvent<HTMLInputElement>) => props.handleChange(event.target.value)} {...props}/>{/*destrutura todas as props passadas e envia para o input */}
 			<SearchIcon/>
 		</InputContainer>
 	</div>
