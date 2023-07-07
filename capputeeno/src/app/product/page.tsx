@@ -22,11 +22,12 @@ const Container = styled.div`
         justify-content: center;
         width: 100%;
         gap: 32px;
-        margin-top: 24px;
+        margin-top: 30px;
 
         img {
             max-width: 640px;
             width: 100%;
+			border-radius: 4px;
         }
         
         > div {
@@ -66,14 +67,14 @@ const ProductInfo = styled.div`
         font-weight: 400;
         font-size: 16px;
         line-height: 150%;
-        color: var(--text-dark-2);
+        color: var(--text-darker);
     }
 
     h2 {
         font-weight: 300;
         font-size: 32px;
         line-height: 150%;
-        color: var(--text-dark-2);
+        color: var(--text-darker);
         margin-top: 12px;
     }
 
@@ -91,7 +92,7 @@ const ProductInfo = styled.div`
     }
 
     div {
-        margin-top: 24px;
+        margin-top: 58px;
 
         h3 {
             text-transform: uppercase;
@@ -119,9 +120,9 @@ export default function Product({searchParams}: {searchParams: {id: string}}){
 					<div>
 					<ProductInfo>
 						<span>{data?.category}</span>
-							<h3>{data?.name}</h3>
+							<h2>{data?.name}</h2>
 							<span>{formatPrice(data?.price_in_cents ?? 0)}</span>
-							<p>Frete de 40,00 para todo o Brasil. Gratis para compras acima de 200 reais.</p>
+							<p>*Frete de R$40,00 para todo o Brasil. Grátis para compras acima de R$900,00.</p>
 							<div>
 								<h3>Descrição</h3>
 								<p>{data?.description}</p>
