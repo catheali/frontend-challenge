@@ -17,6 +17,7 @@ export function Products() {
 	return(
 	<ListContainer>{data?.map(prod => 
 	<ProductCard
+		id={prod.id}
 		key={prod.id}
 		title={prod.name}
 		price={prod.price_in_cents}

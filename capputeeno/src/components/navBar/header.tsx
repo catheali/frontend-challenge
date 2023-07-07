@@ -1,4 +1,5 @@
 "use client"
+
 import { styled } from "styled-components";
 import { Saira_Stencil_One } from 'next/font/google' // biblioteca do next das fontes do google
 import { PrimaryInputSearchIcon } from "./primary-input";
@@ -35,27 +36,28 @@ const Logo = styled.a`
 	font-size: 20px;
 	line-height:150%;
 
-	@media(min-width:${props => props.theme.desktopBreakpoint}){
-		font-size:40px;
-	}
-
 	@media(min-width:${props => props.theme.tabletBreakpoint}){
 		font-size: 24px;
+	}
+
+	@media(min-width: ${props => props.theme.desktopBreakpoint}){
+		font-size:40px;
 	}
 `
 
 export function Header(props: HeaderProps) {
-	const {search, setSearch} = useFilter()
+	const {setSearch, search} = useFilter()
 	return(
-		<TagHeader>
-			<Logo className={sairaStencil.className}>Capputeeno</Logo>
-			<div> 
-				<PrimaryInputSearchIcon
-				value={search}
-				handleChange={setSearch}
-				placeholder="Procurando por algo específico?"/> 
-				<CartControl/>
-			</div>
-		</TagHeader>
+			<TagHeader>
+				<Logo className={sairaStencil.className}>Capputeeno</Logo>
+				<div> 
+					<PrimaryInputSearchIcon
+					value={search}
+					handleChange={setSearch}
+					placeholder="Procurando por algo específico?"/> 
+					<CartControl/>
+				</div>
+		    </TagHeader>
+		
 	)
 }
