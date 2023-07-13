@@ -23,7 +23,8 @@ export function useProduct(id: string) {
 	const {data} = useQuery({
 		queryFn: ()=> fetcher(id),
 		queryKey: ['product', id],
-		enabled: !!id
+		enabled: !!id,
+		staleTime: 1000*60*5 // a cada 1 minuto vai disparar a requisição
 	}); // quando o id tiver um valor dentro, ele faz a requisição
 	return {
 		data: data?.data?.data?.Product
