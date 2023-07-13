@@ -5,6 +5,7 @@ import { Saira_Stencil_One } from 'next/font/google' // biblioteca do next das f
 import { PrimaryInputSearchIcon } from "./primary-input";
 import { CartControl } from "./cart-control";
 import { useFilter } from "@/hooks/useFilter";
+import { usePathname } from "next/navigation";
 
 const sairaStencil = Saira_Stencil_One({ 
 	weight: ['400'],
@@ -46,15 +47,17 @@ const Logo = styled.a`
 `
 
 export function Header(props: HeaderProps) {
-	const {setSearch, search} = useFilter()
+	const {setSearch, search} = useFilter();
+	const local  = usePathname(); // aparece a barra de pesquisa apenas se estiver na pagina inicial
+	
 	return(
 			<TagHeader>
 				<Logo className={sairaStencil.className}>Capputeeno</Logo>
 				<div> 
-					<PrimaryInputSearchIcon
+					{ local === '/' && <PrimaryInputSearchIcon
 					value={search}
 					handleChange={setSearch}
-					placeholder="Procurando por algo específico?"/> 
+					placeholder="Procurando por algo específico?"/> }
 					<CartControl/>
 				</div>
 		    </TagHeader>
