@@ -1,6 +1,9 @@
 import { useLocalStorage } from "@/hooks/useLocalStorage";
 import {styled} from "styled-components";
 import {CartIcon} from "../icons/cart-icon";
+import { useRouter } from "next/navigation";
+import { totalItems } from "@/utils/format";
+
 
 const CartCount = styled.span`
 	width: 17px;
@@ -17,18 +20,28 @@ const CartCount = styled.span`
 	font-style: normal;
 	font-weight: 500;
 	line-height: 17px;
+	
 `
 const Container = styled.div`
 	position: relative;
+	cursor: pointer;
 `
 
-export function CartControl(){
-	const { value } = useLocalStorage('cart-items', [])
+interface CartControlProps {
+	navigate: string
+}
 
+export function CartControl(props: CartControlProps){
+	const { value } = useLocalStorage('cart-items', [])
+	const router = useRouter()
+	const handleNavigate = () => {
+        router.push(props.navigate)
+    }
+	const total = totalItems(value)
 	return (
-		<Container>
+		<Container onClick={handleNavigate} >
 			<CartIcon/>
-			{value.length > 0 && <CartCount>{value.length}</CartCount>}
+			{value.length > 0 && <CartCount>{total}</CartCount>}
 		</Container>
 	)
 }
