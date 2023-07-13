@@ -4,7 +4,7 @@ import { ShopBagICon } from "@/components/icons/shop-bag-icon"
 import { BackButton } from "@/components/products/back-button"
 import { DefaultPageLayout } from "@/components/provider/default-page-layout"
 import { useProduct } from "@/hooks/useProduct"
-import { formatPrice } from "@/utils/format-price"
+import { formatPrice } from "@/utils/format"
 import { styled } from "styled-components"
 
 interface ProductProps {

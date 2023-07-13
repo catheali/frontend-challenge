@@ -3,9 +3,9 @@
 import { styled } from "styled-components";
 import { Saira_Stencil_One } from 'next/font/google' // biblioteca do next das fontes do google
 import { PrimaryInputSearchIcon } from "./primary-input";
-import { CartControl } from "./cart-control";
+import { CartControl } from "../cart/cart-control";
 import { useFilter } from "@/hooks/useFilter";
-import { usePathname } from "next/navigation";
+import { usePathname} from "next/navigation";
 
 const sairaStencil = Saira_Stencil_One({ 
 	weight: ['400'],
@@ -36,6 +36,7 @@ const Logo = styled.a`
 	font-weight: 400;
 	font-size: 20px;
 	line-height:150%;
+	text-decoration: none;
 
 	@media(min-width:${props => props.theme.tabletBreakpoint}){
 		font-size: 24px;
@@ -49,16 +50,17 @@ const Logo = styled.a`
 export function Header(props: HeaderProps) {
 	const {setSearch, search} = useFilter();
 	const local  = usePathname(); // aparece a barra de pesquisa apenas se estiver na pagina inicial
-	
 	return(
 			<TagHeader>
-				<Logo className={sairaStencil.className}>Capputeeno</Logo>
+				<Logo href="/" className={sairaStencil.className}>Capputeeno</Logo>
 				<div> 
 					{ local === '/' && <PrimaryInputSearchIcon
 					value={search}
 					handleChange={setSearch}
 					placeholder="Procurando por algo específico?"/> }
-					<CartControl/>
+					<CartControl 
+					navigate="/cart"
+					/>
 				</div>
 		    </TagHeader>
 		

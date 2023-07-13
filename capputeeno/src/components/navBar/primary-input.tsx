@@ -45,10 +45,14 @@ interface InputProps extends InputHTMLAttributes <HTMLInputElement>{
 } // importando todos os atributos que um input normal recebe usando o generics HTMLInputElement
 
 export function PrimaryInputSearchIcon(props: InputProps){
+	const handleChange= (event:any)=>{
+		props.handleChange(event.target.value)
+	}
+
 	return (
 	<div>
 		<InputContainer>
-		 <PrimaryInput onChange={(event:any ) => props.handleChange(event.target.value)}
+		 <PrimaryInput onChange={handleChange}
 		  {...props}/>{/*destrutura todas as props passadas e envia para o input */}
 			<SearchIcon/>
 		</InputContainer>
