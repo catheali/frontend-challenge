@@ -11,6 +11,8 @@
   --shapes: #dce2e6;
   --bg-primary: #f0f0f5;
   --text-product: #617480;
+  --border-color: #a8a8b3;
+  --success-color: #51b853;
 }
 
 * {
