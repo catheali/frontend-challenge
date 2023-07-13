@@ -1,7 +1,8 @@
 "use client"
-import { formatPrice } from "@/utils/format-price"; 
+import { formatPrice } from "@/utils/format"; 
 import { styled } from "styled-components";
 import { useRouter } from "next/navigation";
+import { Divider } from "../provider/default-divider";
 
 
 interface ProductCardProps {
@@ -64,7 +65,7 @@ export function ProductCard(props: ProductCardProps){
 		<Card onClick={handleNavigate} >
 			<img src={props.image} />
 			<h3>{props.title}</h3>  
-			<div></div>
+			<Divider/>
 			<p>{price}</p>
 		</Card>
 		
